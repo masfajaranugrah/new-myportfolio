@@ -1,0 +1,271 @@
+---
+title: "The Easiest Way to Use Global State Management with Zustand in Next.js 15 - Step by Step"
+description: "A comprehensive guide on using Zustand for state management in Next.js 15 with step-by-step instructions."
+tags:
+  - Next.js
+  - Zustand
+  - State Management
+cover: "/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/0.png"
+author:
+  name: "Josumaru"
+  role: "Front-End Developer"
+  github: "https://github.com/josumaru"
+  twitter: "https://twitter.com/josumaru"
+  instagram: "https://instagram.com/josurou"
+  website: "https://josumaru.my.id"
+date:
+  createdAt: "10 Feb 2025"
+  updatedAt: "10 Feb 2025"
+---
+
+![Zustand and Next.js](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/0.png)
+
+# Introduction
+Managing global state in Next.js applications can be challenging. In this guide, we will explore how to use Zustand to simplify state management and integrate it seamlessly into a Next.js 15 project.
+
+# Requirements
+Before we begin, make sure you have the following:
+
+- [Node.js 18.18+](https://nodejs.org/en)
+- [Visual Studio Code](https://code.visualstudio.com/) (or any preferred editor)
+- A terminal or command prompt
+
+# Step 1: Install Next.js 15 & Start the Server
+For comprehensive guidance on Next.js, check out the [official Next.js documentation](https://nextjs.org/docs).
+
+## Install Next.js
+
+To set up a Next.js project, run the following command in your terminal:
+
+```sh
+npx create-next-app@15.1.6
+```
+
+Or, if you want to use the latest version of Next.js:
+
+
+```sh
+npx create-next-app@latest
+```
+
+Follow the steps in the setup process until it completes. In this tutorial, we will use TypeScript.
+![image](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/1.png)
+
+## Serve Next.js Server
+
+Open your Next.js project using your favorite code editor. In this tutorial, we'll use VS Code
+
+Next, open the terminal at the project root and run the following command:
+
+```bash
+npm run dev
+```
+![Starting Next Server](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/2.png)
+Once the server is running, open your browser and visit `http://localhost:3000`
+![image](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/3.png)
+
+
+# Step 2: Install Zustand
+
+To manage state efficiently, install the [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction) package by running:
+
+```bash
+npm install zustand
+```
+![image](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/4.png)
+
+# Step 3: Create a store
+
+## Inside the /src directory, create a new folder named store.
+
+![image](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/5.png)
+
+## Create a New Store File
+
+Inside the `src/store` folder, create a new file and paste the following code:  
+
+<CodeBlock name={"counterStore.ts"}>
+```ts
+import { create } from "zustand";
+
+interface CounterStore {
+  count: number;
+  setCounter: (count: number) => void;
+}
+
+export const useCounterStore = create<CounterStore>((set) => ({
+  count: 0,
+  setCounter: (count) => set({ count }),
+}));
+```
+</CodeBlock>
+
+# Step 4: Integrate with Next.js Page
+
+After installing Next.js and Zustand, the next step is to integrate Zustand state management into our page.
+
+## Create a New Route
+In this example, we'll create a **`checkout`** route.
+
+In Next.js, routing is simple—just create a folder and a file inside the `src/app` directory. The file should be named `page.tsx` if you’re using TypeScript, or `page.jsx` for JavaScript.  
+
+Since we'll be using TypeScript in this tutorial, your folder structure should look like this:
+
+```bash
+├── public
+├── src
+│   ├── app
+│   │   ├── checkout
+│   │   │   └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── store
+│       └── counterStore.ts
+├── eslint.config.mjs
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
+## Set up Zustand & Navigation at `/` Route
+
+In Next.js, use the `<Link />` component for navigation instead of the traditional `<a />` tag.
+
+First, delete all the code in `src/app/page.tsx` and replace it with the following:
+
+<CodeBlock name={"src/app/page.tsx"}>
+```tsx
+import { useCounterStore } from "@/store/counterStore";
+import { NextPage } from "next";
+import Link from "next/link";
+
+const Page: NextPage = ({}) => {
+  const { count, setCounter } = useCounterStore();
+  return (
+    <div className="h-screen w-screen flex items-center justify-center flex-col gap-4">
+      <h1 className="text-center">Item Count {count}</h1>
+      <button
+        className="w-32 h-12 text-black bg-white rounded-xl hover:bg-primary-dark"
+        onClick={() => setCounter(count + 1)}
+      >
+        Add item
+      </button>
+      <Link
+        href={"/checkout"}
+        className="w-32 h-12 flex items-center justify-center text-black bg-white rounded-xl hover:bg-primary-dark"
+      >
+        Checkout
+      </Link>
+    </div>
+  );
+};
+
+export default Page;
+
+```
+</CodeBlock>
+
+Save your file and open your browser. You may notice an issue like this:  
+
+![Issue Screenshot](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/6.png)
+
+### Why This Happens
+
+When using Zustand in Next.js (or any framework that supports server-side rendering/SSR), you need to wrap your page with `"use client"` to ensure it runs on the client-side. Zustand relies on React hooks (like `useState` and `useEffect`), which can only be used inside client components.
+
+### Fix It
+
+To fix this, simply add `"use client"` at the top of your file. Your updated code should look like this:
+
+<CodeBlock name={"src/app/page.tsx"}>
+```tsx
+"use client";
+
+import { useCounterStore } from "@/store/counterStore";
+import { NextPage } from "next";
+import Link from "next/link";
+
+const Page: NextPage = ({}) => {
+  const { count, setCounter } = useCounterStore();
+  return (
+    <div className="h-screen w-screen flex items-center justify-center flex-col gap-4">
+      <h1 className="text-center">Item Count {count}</h1>
+      <button
+        className="w-32 h-12 text-black bg-white rounded-xl hover:bg-primary-dark"
+        onClick={() => setCounter(count + 1)}
+      >
+        Add item
+      </button>
+      <Link
+        href={"/checkout"}
+        className="w-32 h-12 flex items-center justify-center text-black bg-white rounded-xl hover:bg-primary-dark"
+      >
+        Checkout
+      </Link>
+    </div>
+  );
+};
+
+export default Page;
+
+```
+</CodeBlock>
+
+Now, your page should look like this:  
+
+![Page Screenshot](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/7.png)
+
+## Set up Zustand & Navigation at `/checkout` Route
+
+Next, let's set up the `checkout` route. To do this, paste the following code into `src/app/checkout/page.tsx`:
+
+<CodeBlock name={"src/app/checkout/page.tsx"}>
+```tsx
+"use client";
+import { useCounterStore } from "@/store/counterStore";
+import { NextPage } from "next";
+import Link from "next/link";
+
+const Page: NextPage = ({}) => {
+  const { count } = useCounterStore();
+  return (
+    <div className="h-screen w-screen flex items-center justify-center flex-col gap-4">
+      <h1 className="text-center">Your Item: {count}</h1>
+      <Link
+        href={"/"}
+        className="w-32 h-12 flex items-center justify-center text-black bg-white rounded-xl hover:bg-primary-dark"
+      >
+        Back
+      </Link>
+    </div>
+  );
+};
+
+export default Page;
+
+```
+</CodeBlock>
+
+# Step 5: Enjoy Zustand State Management
+
+Now, try adding items on the `/` page and navigate to `/checkout` to see the result.
+
+![Items Added](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/9.png)
+![Checkout Page](/images/blog/the-easiest-way-to-use-global-state-management-with-zustand-in-next-js-15-step-by-step/10.png)
+
+---
+
+# Conclusion
+
+In conclusion, integrating Zustand for global state management in your Next.js 15 application is a straightforward and powerful way to manage state across multiple pages. Zustand’s simple API makes it easy to create and update stores without the complexity often associated with other state management libraries.
+
+By following this guide, you have successfully set up Zustand, created a store, and connected it to your Next.js pages. This enables smooth and efficient state management, making it easier to maintain and scale your application as it grows.
+
+Zustand's flexibility and ease of use ensure you can manage state effectively across your app, and itis a great choice for small to medium-sized projects. If you'd like to see the full implementation, check out the example repository on GitHub: [Github Repository](https://github.com/Josumaru/zustand-example).

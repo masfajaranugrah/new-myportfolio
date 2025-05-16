@@ -1,0 +1,88 @@
+---
+title: 'How to Run Fresh Next.js 15 Using Bun: A Step-by-Step Guide'
+description: 'Learn how to set up and run a fresh Next.js 15 project using Bun, the fast all-in-one JavaScript runtime.'
+tags:
+  - Next.js
+  - Bun
+  - JavaScript
+  - Tutorial
+cover: '/images/blog/how-to-run-fresh-next-js-15-using-bun.png'
+author:
+  name: 'Josumaru'
+  role: 'Front-End Developer'
+  github: 'https://github.com/josumaru'
+  twitter: 'https://twitter.com/josumaru'
+  instagram: 'https://instagram.com/josurou'
+  website: 'https://josumaru.my.id'
+date:
+  createdAt: '5 Feb 2025'
+  updatedAt: '5 Feb 2025'
+---
+
+![image](/images/blog/how-to-run-fresh-next-js-15-using-bun.png)
+
+# How to Run Fresh Next.js 15 Using Bun
+
+Bun is a fast JavaScript runtime that offers a great alternative to Node.js, with built-in support for package management and script execution. In this guide, we will set up a fresh Next.js 15 project and run it using Bun.
+
+## Prerequisites
+
+Before we begin, make sure you have the following installed:
+
+- [Bun](https://bun.sh/) (Install it using `curl -fsSL https://bun.sh/install | bash`)
+- [Node.js](https://nodejs.org/en) (Optional, but good for compatibility checks)
+- A terminal or command prompt
+
+## Step 1: Create a Fresh Next.js 15 Project
+
+Run the following command to create a new Next.js 15 project:
+
+```sh
+bun create next@latest my-next-app
+```
+
+Navigate into the project directory:
+
+```sh
+cd my-next-app
+```
+
+## Step 2: Install Dependencies
+
+Bun can install dependencies much faster than npm or yarn. Simply run:
+
+```sh
+bun install
+```
+
+This will install all necessary dependencies for your Next.js 15 project.
+
+## Step 3: Run the Next.js Development Server
+
+To start the Next.js development server using Bun, run:
+
+```sh
+bun dev
+```
+
+Your Next.js app should now be running at `http://localhost:3000`.
+
+## Step 4: Building and Running in Production
+
+To build the project, run:
+
+```sh
+bun run build
+```
+
+Then, start the production server:
+
+```sh
+bun run start
+```
+
+# Conclusion
+
+Using Bun with Next.js 15 provides a faster development experience, thanks to Bun's speed and efficient package management. If you're looking to optimize your Next.js workflow, give Bun a try!
+
+Happy coding! 🚀
