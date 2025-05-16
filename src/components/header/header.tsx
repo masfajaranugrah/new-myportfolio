@@ -38,11 +38,11 @@ const Header: NextPage = ({}) => {
         <div className="flex flex-col md:flex-row gap-2 w-full items-center justify-center my-5 ">
           <Link
             target="_blank"
-            href="https://api.whatsapp.com/send/?phone=6287836167585&text&type=phone_number&app_absent=0"
+            href="cv/fajar_anugrah_vc_fullstack.pdf"
             className="w-full md:w-auto"
           >
             <Button className="group flex w-full h-12 hover:shadow-xl hover:shadow-primary-500/75  duration-500 items-center justify-center gap-1 border border-primary-500 bg-primary-500 hover:bg-primary-600 rounded-2xl sm:flex-1 md:w-96 text-sm md:text-md font-medium text-white">
-              <p className="font-bold">Chat with Me</p>
+              <p className="font-bold">CV</p>
               <div className="w-8">
                 <ArrowRight className="group-hover:ml-2 duration-300" />
               </div>
