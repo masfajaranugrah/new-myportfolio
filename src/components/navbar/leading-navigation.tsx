@@ -7,7 +7,7 @@ const LeadingNavigation: NextPage = ({}) => {
 
   return (
     <p className="col-span-1 flex items-center gap-1">
-      Fajar Angugrah <span> / </span>{" "}
+      Fajar Anugrah <span> / </span>{" "}
       <strong>
         {pathName === "/" ? "Portfolio" : "Portfolio"}
       </strong>
