@@ -136,7 +136,7 @@ const Footer: NextPage = ({}) => {
         </div>
         <div className=" w-full flex mt-4 items-center justify-center">
           <h1 className="text-center text-3xl md:text-5xl lg:text-[10rem] font-bold">
-            <AuroraText>FAJAR ANUGRAH</AuroraText>
+            <AuroraText>FAJAR ANUGRAH DEV</AuroraText>
           </h1>
         </div>
       </div>

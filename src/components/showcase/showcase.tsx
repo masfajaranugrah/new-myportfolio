@@ -40,7 +40,7 @@ const Showcase: NextPage = ({}) => {
       url: "https://paten-masfajaranugrahs-projects.vercel.app",
       image: ShowcaseImageConstants.demo5,
       title: "Company profile",
-      tags: ["React", "Supabase", "Next.JS"],
+      tags: ["React", "CSS Tailwind"],
     },
      {
       subtitle:
