@@ -5,8 +5,8 @@ import Footer from "@/components/footer/footer";
 import Navigation from "@/components/navbar/navigation";
 import openGraph from "@/assets/opengraph/opengraph.png";
 import { ThemeProvider } from "@/components/common/theme-provider";
-import AdScript from "@/components/ad/ad-script";
 import { Analytics } from "@vercel/analytics/react";
+ 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fajar anugrah",
   description:
-    "Hello, my name is Joko Supriyanto, I am a software developer, I also develop backends and study how artificial intelligence and machine learning are applied in applications to support integrated digital facilities.",
+    "Hello, my name is fajar anugrah, I am a full stack developer, I also study how artificial intelligence and machine learning are applied in applications to support integrated digital facilities.",
   openGraph: {
     images: {
       url: openGraph.src,
@@ -31,27 +31,19 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Fajar anugrah",
-    "Joko Supriyanto",
-    "Joko",
-    "Supriyanto",
-    "Overlogic Ums",
-    "Overlogic Universe",
-    "Overlogic ID",
-    "Top Global Hack The Box",
-    "Programmer Kotlin",
+    "Fajar",
+    "Anugrah",
+    "Developer",
+    "FullStack Developer",
+    "jasa website",
+    "jasa",
+    "Jasa Website",
+    "Programmer",
   ],
   authors: [
     {
-      name: "Joko Supriyanto",
-      url: "https://Fajar anugrah.my.id",
-    },
-    {
-      name: "Overlogic ID",
-      url: "https://github.com/overlogic-universe",
-    },
-    {
       name: "Fajar anugrah",
-      url: "https://github.com/Fajar anugrah",
+      url: "https://github.com/masfajaranugrah",
     },
   ],
 };
@@ -64,12 +56,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta
+ <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <meta
           name="google-adsense-account"
           content={process.env.NEXT_PUBLIC_AD_CLIENT}
         />
 
-        <AdScript adClient={process.env.NEXT_PUBLIC_AD_CLIENT} />
+        <AdScript adClient={process.env.NEXT_PUBLIC_AD_CLIENT} /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
