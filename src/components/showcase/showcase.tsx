@@ -60,7 +60,15 @@ const Showcase: NextPage = ({}) => {
       title: "Philia Adventure Land",
       tags: ["Laravel", "Bootstrap"],
     },
- 
+    {
+      subtitle:
+"functions as an online marketplace, offering a platform where sellers and buyers can conduct transactions..",
+      alt: "Marketplace",
+      url: "https://github.com/masfajaranugrah/up_philia",
+      image: ShowcaseImageConstants.demo8,
+      title: "Marketplace",
+      tags: ["React Js", "CSS Tailwind", "Stripe", "Express Js"],
+    },
  
     
   ];
