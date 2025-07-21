@@ -1,14 +1,26 @@
-import type { NextConfig } from "next";
-import createMDX from "@next/mdx";
-const nextConfig: NextConfig = {
-  /* config options here */
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  output: "standalone",
+/** @type {import('next').NextConfig} */
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+});
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  output: 'standalone',
   images: {
     unoptimized: true,
     remotePatterns: [
       {
-        hostname: "github.com",
+        hostname: 'github.com',
       },
     ],
   },
@@ -20,10 +32,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-  extension: /\.mdx?$/,
-});
-
-// Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+// Gabungkan semua konfigurasi: MDX -> PWA -> Next
+module.exports = withPWA(withMDX(nextConfig));
