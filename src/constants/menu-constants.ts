@@ -7,6 +7,10 @@ export const MenuConstants = [
     title: 'Showcase',
     href: '/#showcase'
   },
+    {
+    title: 'Services',
+    href: '/#services'
+  },
   {
     title: 'Profile',
     href: '/#profile'

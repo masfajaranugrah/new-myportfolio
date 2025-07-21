@@ -1,10 +1,12 @@
 import { StaticImageData } from "next/image";
+ 
 
-type ShowcaseType = {
+export interface ShowcaseType {
   title: string;
   subtitle: string;
-  image: StaticImageData;
-  url: string;
+  image: StaticImageData | string;
   alt: string;
+  url: string;
   tags: string[];
-};
+  type: "frontend" | "backend" | "fullstack";
+}

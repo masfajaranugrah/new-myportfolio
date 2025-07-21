@@ -1,6 +1,7 @@
 import Header from '@/components/header/header';
 import Profile from '@/components/profile/Profile';
-import Showcase from '@/components/showcase/showcase';
+import Services from '@/components/services/Service';
+import {Showcase} from '@/components/showcase/showcase';
 import { NextPage } from 'next';
 
 const Page: NextPage = ({}) => {
@@ -8,6 +9,7 @@ const Page: NextPage = ({}) => {
     <>
       <Header />
       <Showcase />
+      <Services/>
       <Profile />
    
      </>
