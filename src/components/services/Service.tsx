@@ -48,7 +48,7 @@ const services = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-black via-red-950/20 to-black py-20 px-4">      {/* Background Effects & Floating Icons */}
+    <section id="services" className="relative overflow-hidden bg-gradient-to-b from-black via-red-950/20 to-black py-20 px-4">      {/* Background Effects & Floating Icons */}
       <div className="absolute inset-0 overflow-hidden">
         {[
           { icon: "laravel", title: "Frontend", top: "15%", left: "10%", delay: "0.3s" },
