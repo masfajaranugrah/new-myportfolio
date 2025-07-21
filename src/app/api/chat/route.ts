@@ -52,7 +52,7 @@ Berikan jawaban berdasarkan informasi yang tersedia di atas. Jika tidak menemuka
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer  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`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
