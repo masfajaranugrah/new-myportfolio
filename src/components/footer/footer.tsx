@@ -37,50 +37,12 @@ const Footer: NextPage = ({}) => {
   
       ],
     },
-    // {
-    //   title: "Overlogic",
-    //   subtitles: [
-    //     {
-    //       name: "Websites",
-    //       url: "/",
-    //     },
-    //     {
-    //       name: "Instagram",
-    //       url: "https://www.instagram.com/overlogic.id/",
-    //     },
-    //     {
-    //       name: "Linkedin",
-    //       url: "https://www.linkedin.com/in/overlogic",
-    //     },
-    //     // { name: "Discord", url: "https://discord.com/app" },
-    //   ],
-    // },
-    // {
-    //   title: "Domain",
-    //   subtitles: [
-    //     {
-    //       name: "josumaru.my.id",
-    //       url: "https://josumaru.my.id",
-    //     },
-    //     {
-    //       name: "raijin.josumaru.my.id",
-    //       url: "https://raijin.josumaru.my.id/api/anime/ongoing/1",
-    //     },
-    //     {
-    //       name: "vido.josumaru.my.id",
-    //       url: "https://vido.josumaru.my.id",
-    //     },
-    //     {
-    //       name: "hpc.josumaru.my.id",
-    //       url: "https://hpc.josumaru.my.id",
-    //     },
-    //     {
-    //       name: "anime.josumaru.my.id",
-    //       url: "https://anime.josumaru.my.id",
-    //     },
-    //   ],
-    // },
+    
   ];
+
+
+
+  
   return (
     <footer className="mt-20 overflow-hidden flex items-center justify-center">
       <div className="container mx-3">
