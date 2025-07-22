@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-});
+
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
@@ -31,6 +27,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 };
-
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+});
 // Gabungkan semua konfigurasi: MDX -> PWA -> Next
 module.exports = withPWA(withMDX(nextConfig));
