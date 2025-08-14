@@ -96,8 +96,16 @@ const projects: ShowcaseType[] = [
   title: "Website & Mobile App Development Services",
   tags: ["Next.js", "Flutter", "Kotlin"],
   type: "frontend",
+},
+{
+  subtitle: "RESTful API backend for an e-commerce platform, built with Node.js and Express.js using Clean Architecture for scalable and maintainable code, documented with Swagger.",
+  alt: "API E-Commerce Clean Architecture",
+  url: "https://github.com/masfajaranugrah/E-commerce",
+  image: ShowcaseImageConstants.demo9,
+  title: "API E-Commerce (Clean Architecture)",
+  tags: ["Node.js", "Express.js", "Swagger", "Clean Architecture"],
+  type: "backend",
 }
-
   ];
 
 const itemsPerPage = 6;
@@ -107,7 +115,6 @@ export const Showcase: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollYRef = useRef<number>(0);
 
   const filteredProjects =
     filter === "all"
@@ -116,7 +123,10 @@ export const Showcase: NextPage = () => {
 
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProjects = filteredProjects.slice(startIndex, startIndex + itemsPerPage);
+  const currentProjects = filteredProjects.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   const typeColors: Record<string, string> = {
     all: "bg-blue-100 text-blue-600",
@@ -129,16 +139,6 @@ export const Showcase: NextPage = () => {
     setFilter(type);
     setCurrentPage(1);
   };
-
-  // Save scroll position before changing page
-  useLayoutEffect(() => {
-    scrollYRef.current = window.scrollY;
-  }, [currentPage]);
-
-  // Restore scroll position after render
-  useLayoutEffect(() => {
-    window.scrollTo({ top: scrollYRef.current, behavior: "auto" });
-  }, [currentProjects]);
 
   return (
     <section id="showcase" className="py-16 px-4">
@@ -198,7 +198,7 @@ export const Showcase: NextPage = () => {
           )}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Pagination */}
         {totalPages >= 1 && (
           <div className="flex justify-center mt-10 gap-2 flex-wrap">
             {Array.from({ length: totalPages }, (_, i) => (

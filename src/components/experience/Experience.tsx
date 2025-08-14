@@ -61,12 +61,7 @@ const content = [
         imageDescription: 'Award Certificate',
         imageSubDescription: 'I received a certificate of appreciation for completing my work as a computer lab assistant for Algorithms and Programming. '
       }
-      // {
-      //   src: ExperienceImageConstants.assistant1,
-      //   imageDescription: "Operating system practice in the lab",
-      //   imageSubDescription:
-      //     "They are students who trained with me when I was an assistant.",
-      // },
+    
     ]
   },
   {

@@ -8,6 +8,7 @@ import demo7 from '@/assets/images/showcase/demo7.png';
 import demo8 from '@/assets/images/showcase/demo8.png';
 import demo9 from '@/assets/images/showcase/demo9.png';
 import demo10 from '@/assets/images/showcase/demo10.png';
+import demo11 from '@/assets/images/showcase/demo11.png';
 
 
 export const ShowcaseImageConstants = {
@@ -21,5 +22,6 @@ export const ShowcaseImageConstants = {
   demo8,
   demo9,
   demo10,
+  demo11,
  
 };
